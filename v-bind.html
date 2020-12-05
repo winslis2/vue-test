@@ -4,25 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Demo-01</title>
+    <title>v-bind</title>
 </head>
 <body>
-    
     <div id="app">
-            <input type="text" v-model="num">
-        hello,{{name}},有{{num}}个人为他点赞了
+        <a v-bind:href="link" >打开新链接</a>
     </div>
 </body>
 <script src="/node_modules/vue/dist/vue.js"></script>
 <script>
-    
-    Vue.config.devtools = true //配置此项后才会在控制台显示vue选项
     new Vue({
         el:"#app",
         data:{
-            name:"lis2",
-            num:1
+            link:"https://www.baidu.com"
         }
-    });
+    })
 </script>
 </html>

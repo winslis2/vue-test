@@ -4,13 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Demo-01</title>
+    <title>v-html</title>
 </head>
 <body>
     
     <div id="app">
-            <input type="text" v-model="num">
+        <input type="text" v-model="num">
+        <span v-html="msg"></span>
+        <span v-text="msg"></span>
         hello,{{name}},有{{num}}个人为他点赞了
+        <div>
+            {{say()}}
+        </div>
     </div>
 </body>
 <script src="/node_modules/vue/dist/vue.js"></script>
@@ -21,8 +26,14 @@
         el:"#app",
         data:{
             name:"lis2",
+            msg:"<h1>msg</h1>",
             num:1
-        }
+        },
+        methods: {
+            say(){
+                return `${this.num}个人给他点赞了`;
+            }
+        },
     });
 </script>
 </html>
