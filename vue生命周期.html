@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue生命周期</title>
+
+</head>
+<body>
+        <div id=app>
+            <span id="num">{{num}}</span>
+            <button @click="num++">赞！</button>
+            <h2>{{name}},有{{num}}个人点赞
+            </h2>
+        </div>
+</body>
+<script src="/node_modules/vue/dist/vue.js"></script>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            name:"lis2",
+            num:100
+        },
+        methods: {
+            show(){
+                return  this.name;
+            },
+            add() {
+                this.name++;
+            }
+        
+        },
+        beforeCreate() {
+            console.log("==========beforCreate==========");
+            console.log("数据模型：",this.num,this.name)
+            console.log("方法",this.show());
+            console.log("html模板",document.getElementById("num"))
+        },
+        created() {
+            console.log("==========created==========");
+            console.log("数据模型：",this.num,this.name)
+            console.log("方法",this.show());
+            console.log("html模板",document.getElementById("num")) 
+        },
+        beforeMount() {
+            console.log("==========beforeMount==========");
+            console.log("数据模型：",this.num,this.name)
+            console.log("方法",this.show());
+            console.log("html模板",document.getElementById("num").innerText) 
+        },
+        mounted() {
+            console.log("==========mounted==========");
+            console.log("数据模型：",this.num,this.name)
+            console.log("方法",this.show());
+            console.log("html模板",document.getElementById("num").innerText) 
+        },
+        beforeUpdate() {
+            console.log("==========beforeUpdate==========");
+            console.log("数据模型：",this.num,this.name)
+            console.log("方法",this.show());
+            console.log("html模板",document.getElementById("num").innerText) 
+        },
+        updated() {
+            console.log("==========Update==========");
+            console.log("数据模型：",this.num,this.name)
+            console.log("方法",this.show());
+            console.log("html模板",document.getElementById("num").innerText) 
+        },
+    })
+</script>
+</html>

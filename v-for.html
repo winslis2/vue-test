@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-for</title>
+</head>
+<body>
+    <div id="app">
+        <span v-for="(user,index) in users" v-bind:key="user.name" v-if="user.gender=='女'">
+            {{user.name}}=>{{user.age}}=>{{user.gender}} 索引是{{index}}<br/>
+        </span>
+        <span v-for="(v,k,i) in object" >
+            {{v}}=>{{k}}=>{{i}}<br/>
+        </span>
+    </div>
+</body>
+<script src="/node_modules/vue/dist/vue.js"></script>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            users:[
+                {name:"张三男",gender:'男',age:12},
+                {name:"张三女",gender:'女',age:12},
+                {name:"李四男",gender:'男',age:12},
+                {name:"李四女",gender:'女',age:12},
+            ],
+            object: {
+                title: 'How to do lists in Vue',
+                author: 'Jane Doe',
+                publishedAt: '2016-04-10'
+            }
+        }
+    })
+</script>
+</html>

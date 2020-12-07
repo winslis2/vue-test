@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>v-bind</title>
+    <title>v-if</title>
 </head>
 <body>
     <div id="app">
-        <a v-bind:href="link" >打开新链接</a>
-        <span v-bind:class="{active:Isactive}">控制class的显示</span>
-        <span v-bind:style="{color:color}">控制style样式</span>
+        <button @click="random = Math.random()">点我</button>
+        <span>{{random}}</span>
+        <div v-if="random>0.5">你运气爆棚</div>
+        <div v-else-if="random>=0.3">你的运气一般</div>
+        <div v-else="random>=0">你今天将踩狗屎</div>
     </div>
 </body>
 <script src="/node_modules/vue/dist/vue.js"></script>
@@ -18,9 +20,7 @@
     new Vue({
         el:"#app",
         data:{
-            link:"https://www.baidu.com",
-            Isactive:true,
-            color:"red"
+            random:1
         }
     })
 </script>
