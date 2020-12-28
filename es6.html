@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //es6都是用let
+        //对象结构
+        const person = {
+            name:"lis2",
+            age:20
+        }
+        const {name:newName, age} = person;
+        console.log(newName);
+        console.log(age)
+
+        //字符串扩展
+        str = "hello";
+        console.log(str.startsWith("he"))
+        console.log(str.endsWith("o"))
+        console.log(str.includes("hel"))
+
+        //字符串模板
+        stringTemplate = `<div>${str},${world()}</div>`;
+        console.log(stringTemplate)
+        function world() {
+            return "world";
+        }
+
+        //参数默认值
+        //不定参数
+
+        //箭头函数 不能使用this
+        // var add = function(a,b){
+        //     return a+b;
+        // }
+        var add = (a,b)=>a+b;
+        sum = add(1,2)
+        console.log(sum)
+
+        //对象优化
+        const person1 = {
+            name:"lis2",
+            age:18,
+            language:["java","php"]
+        }
+        console.log(Object.keys(person1))
+        console.log(Object.values(person1))
+        console.log(Object.entries(person1))
+
+        const target = {a:1}
+        const source = {b:2}
+        const source1 = {c:3}
+        Object.assign(target,source,source1)
+        console.log(target)
+
+        // 1、拷贝对象（深拷贝）
+         let p1 = { name: "Amy", age: 15 }
+        let someone = { ...p1 }
+        console.log(someone)  //{name: "Amy", age: 15}
+
+        // 2、合并对象
+        let age1 = { age: 15 }
+        let name1 = { name: "Amy" }
+        let p2 = {name:"zhangsan"}
+        p2 = { ...age1, ...name1 } // {age: 15, name: "Amy"}
+        console.log(p2)
+    </script>
+</body>
+</html>
