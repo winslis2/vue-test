@@ -9,7 +9,7 @@
 <body>
     
     <div id="app">
-        <button v-on:click.once="num++">点赞</button>
+        <button @click.once="num++">点赞</button>
         <button v-on:click="cancel">取消点赞</button>
         hello,{{name}},有{{num}}个人为他点赞了
         <input type="text" @keyup.enter="cancel">
@@ -17,7 +17,7 @@
 </body>
 <script src="/node_modules/vue/dist/vue.js"></script>
 <script>
-    
+    //on 事件可以缩写为@
     Vue.config.devtools = true //配置此项后才会在控制台显示vue选项
     new Vue({
         el:"#app",

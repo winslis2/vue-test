@@ -6,13 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>v-html</title>
 </head>
+<style>
+[v-cloak] {
+   display: none;
+ }</style>
 <body>
     
     <div id="app">
         <input type="text" v-model="num">
         <span v-html="msg"></span>
-        <span v-text="msg"></span>
-        hello,{{name}},有{{num}}个人为他点赞了
+        <span v-text="name"></span>
+        <div v-cloak>
+                hello,{{name}},有{{num}}个人为他点赞了
+        </div>
+       
         <div>
             {{say()}}
         </div>
@@ -20,7 +27,7 @@
 </body>
 <script src="/node_modules/vue/dist/vue.js"></script>
 <script>
-    
+    //防止插值闪烁可以用v-text 、或这v-cloak通过css控制
     Vue.config.devtools = true //配置此项后才会在控制台显示vue选项
     new Vue({
         el:"#app",
